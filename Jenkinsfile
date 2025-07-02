@@ -2,19 +2,28 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clone') {
             steps {
-                echo 'Building Docker image...'
-                sh 'docker build -t my-cicd-app .'
+                git 'https://github.com/your-username/mycicd-pipeline.git'
             }
         }
 
-        stage('Run') {
+        stage('Build') {
             steps {
-                echo 'Running Docker container...'
-                sh 'docker run my-cicd-app'
+                echo '🔨 Building...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo '🧪 Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo '🚀 Deploying...'
             }
         }
     }
 }
-
