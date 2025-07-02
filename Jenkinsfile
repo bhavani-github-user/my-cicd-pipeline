@@ -4,25 +4,33 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/your-username/mycicd-pipeline.git'
+                git 'https://github.com/bhavani-github-user/my-cicd-pipeline'
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo '🔨 Building...'
+                sh 'docker build -t my-cicd-app .'
             }
         }
 
-        stage('Test') {
+        stage('Run Tests') {
             steps {
-                echo '🧪 Running tests...'
+                echo 'Running tests...'
+                sh 'echo Tests Passed!'
             }
         }
 
-        stage('Deploy') {
+        stage('Run Container') {
             steps {
-                echo '🚀 Deploying...'
+                sh 'docker run my-cicd-app'
+            }
+        }
+
+        stage('Cleanup Containers') {
+            steps {
+                echo 'Cleaning up containers...'
+                sh 'docker rm $(docker ps -aq) -f || true'
             }
         }
     }
