@@ -1,0 +1,7 @@
+stage('Deploy to Kubernetes') {
+    steps {
+        sh 'kubectl apply -f kube-deploy.yaml'
+        sh 'kubectl apply -f kube-service.yaml'
+    }
+}
+
