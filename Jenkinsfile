@@ -23,7 +23,7 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                sh 'docker run my-cicd-app'
+                sh 'docker run -d -p 5000:5000 my-cicd-app'
             }
         }
 
