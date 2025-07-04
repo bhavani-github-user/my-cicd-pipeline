@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-cicd-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-cicd-app
+  template:
+    metadata:
+      labels:
+        app: my-cicd-app
+    spec:
+      containers:
+        - name: my-cicd-container
+          image: my-cicd-app
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-cicd-service
+spec:
+  selector:
+    app: my-cicd-app
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+
