@@ -16,7 +16,7 @@ You’ll learn how a simple app goes from:
 ## 🌐 Live Demo
 
 🟢 Public ngrok URL:  
-👉 https://fbbe-157-50-195-168.ngrok-free.app
+👉 👉 [https://cb3b-157-50-195-168.ngrok-free.app](https://cb3b-157-50-195-168.ngrok-free.app)
 ---
 
 ## 🔄 CI/CD Pipeline Flow (Jenkins + Kubernetes)
